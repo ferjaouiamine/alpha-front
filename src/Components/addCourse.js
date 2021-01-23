@@ -10,7 +10,7 @@ import { Alert } from 'antd';
 const { Option } = Select;
 const AddCourse = () => {
   axios.create({
-    baseURL: `http://localhost:3001/api/`,
+    baseURL: `https://alpha-school.herokuapp.com/api/`,
   });
 
   let history = useHistory();
@@ -36,7 +36,7 @@ const AddCourse = () => {
 
       console.log(newCourse);
       const course = await axios.post(
-        "http://localhost:3001/api/course",
+        "https://alpha-school.herokuapp.com/api/course",
         newCourse
       );
       console.log(course);
@@ -68,7 +68,7 @@ const AddCourse = () => {
   const addFiles = {
     name: "file",
     multiple: true,
-    action: "http://localhost:3001/api/upload/uploadFile",
+    action: "https://alpha-school.herokuapp.com/api/upload/uploadFile",
     beforeUpload: (file) => {
       if (file.type !== "application/pdf" && file.type !== "video/mp4") {
         return message.error(`${file.name} type de fichier non autorisé.`);

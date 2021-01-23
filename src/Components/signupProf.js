@@ -96,7 +96,7 @@ export default function SignupProf() {
       };
       console.log(newUser);
       const registerRes = await Axios.post(
-        "http://localhost:3001/api/prof/createProf",
+        "https://alpha-school.herokuapp.com/api/prof/createProf",
         newUser
       );
       console.log(registerRes);

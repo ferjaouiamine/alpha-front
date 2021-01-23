@@ -87,7 +87,7 @@ export default function SignIn() {
       setLoading(true);
       const loginUser = { email, password };
       const loginRes = await Axios.post(
-        "http://localhost:3001/api/login",
+        "https://alpha-school.herokuapp.com/api/login",
         loginUser
       );
       setUserData({
