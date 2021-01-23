@@ -1,7 +1,6 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import FormControl from "@material-ui/core/FormControl";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardActions from "@material-ui/core/CardActions";
@@ -33,7 +32,7 @@ const CoursesByChapter = () => {
   const getcourseContent = (coures) => {
     return (
       <Grid item xs={12} sm={4}>
-        <Card style={{ marginTop: "20%" }}>
+        <Card style={{marginTop: "20%",boxShadow: "2px 2px 1px #9E9E9E"}}>
           <CardHeader
             title={coures.chapterName}
             // subheader={`Chapitre N° ${location.state.data.chapter}`}
@@ -59,12 +58,12 @@ const CoursesByChapter = () => {
 
   return (
     <div>
-      <Breadcrumb style={{ marginTop: 20 }}>
-        <Breadcrumb.Item>Mes cours</Breadcrumb.Item>
-        <Breadcrumb.Item>Chapitre</Breadcrumb.Item>
+      <Breadcrumb style={{ marginTop: 20,justifyContent: "flexStart" ,display: "flex"}}>
+        <h2><Breadcrumb.Item>Mes cours</Breadcrumb.Item></h2>
+         <Breadcrumb.Item><h2>Chapitre</h2></Breadcrumb.Item>
       </Breadcrumb>
 
-      <Grid container spacing={2}>
+      <Grid container spacing={2} >
         {location.state.data.map((coures) =>
           coures.classe === classeSection &&
           coures.courseName ===

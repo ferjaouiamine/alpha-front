@@ -6,6 +6,7 @@ import { FileAddOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import { Select, Input } from "antd";
 import { useLocation } from "react-router-dom";
+import { Alert } from 'antd';
 
 const { Option } = Select;
 const UpdateCourse = (props) => {
@@ -25,17 +26,21 @@ const UpdateCourse = (props) => {
         courseName,
         chapterName,
         description,
-        section,
         classe,
+        section,
+        svgUrl,
         pdfUrl,
         videoUrl,
       };
-      console.log(newCourse);
+      console.log(newCourse)
+      
+      if (description==undefined ||courseName==undefined ||chapterName==undefined ||classe==undefined ){
+        return setInvalidForm(true)
+      } 
       const course = await axios.put(
         `http://localhost:3001/api/course/${location.state.rowData._id}`,
         newCourse
       );
-      console.log(course);
       setCourse(course);
       history.push("/gestioncours");
     } catch (err) {
@@ -47,17 +52,18 @@ const UpdateCourse = (props) => {
   const { TextArea } = Input;
   const [data, setData] = useState([]); //table data
   const [error, setError] = useState();
+  const [invalidForm, setInvalidForm] = useState(false);
   const [course, setCourse] = useState({});
-  const [courseName, setCourseName] = useState();
-  const [chapterName, setChapterName] = useState();
-  const [description, setDescription] = useState();
+  const [courseName, setCourseName] = useState(location.state.rowData.courseName);
+  const [chapterName, setChapterName] = useState(location.state.rowData.chapterName);
+  const [description, setDescription] = useState(location.state.rowData.description);
   const [section] = useState();
-  const [classe, setClasse] = useState();
+  const [classe, setClasse] = useState(location.state.rowData.classe);
   const [pdf, setPdf] = useState([]);
   const [video, setVideo] = useState([]);
 
   const [fileList, updateFileList] = useState([]);
-  const [setSvgUrl] = useState();
+  const [svgUrl ,setSvgUrl] = useState();
   const [oldPdf, setOldPdf] = useState({});
   let defaultfiles = [];
   /*useEffect(
@@ -258,8 +264,8 @@ const UpdateCourse = (props) => {
   }
 
   const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
+    labelCol: { span: 4 },
+    wrapperCol: { span: 14 },
   };
 
   const chapitres = [];
@@ -269,24 +275,43 @@ const UpdateCourse = (props) => {
     );
   });
 
+
+  const onClose = (e) => {
+    setInvalidForm(false)
+   };
+ 
   return (
+    <div>
+      {invalidForm &&   <Alert style={{marginTop:20}}
+      message="Formulaire invalide"
+      description="Veuillez remplir tous les champs."
+      type="error"
+      showIcon
+      closable
+      onClose={onClose}
+      
+    />}
     <Form
-      {...layout}
-      onSubmit={submit}
-      noValidate
-      labelCol={{
-        span: 4,
-      }}
-      wrapperCol={{
-        span: 18,
-      }}
-      size="large"
-      style={{ marginTop: 100, marginLeft: "20%" }}
-    >
-      <Form.Item>
+    {...layout}
+    onSubmit={submit}
+    noValidate
+    labelCol={{
+      span: 4,
+    }}
+    wrapperCol={{
+      span: 25,
+    }}
+    size="large"
+    layout="vertical"
+    style={{ marginTop: 100 }}
+    initialValues={{
+      remember: true,
+    }}>
+      <Form.Item  label="Matière :" >
         <Select
           onChange={handleChangeCourseName}
           defaultValue={location.state.rowData.courseName}
+          value={location.state.rowData.courseName}
         >
           <Option value="Physique">Physique</Option>
           <Option value="Chimie">Chimie</Option>
@@ -302,9 +327,9 @@ const UpdateCourse = (props) => {
           <option value="gestion">Gestion</option>*/}
         </Select>
       </Form.Item>
-      <Form.Item>
+      <Form.Item label="Classe :" >
         <Select
-          value={location.state.rowData.classeName}
+          value={location.state.rowData.classe}
           onChange={handleChangeClasse}
           defaultValue={location.state.rowData.classe}
         >
@@ -323,10 +348,10 @@ const UpdateCourse = (props) => {
           <Option value="4Science Exp">Bac Science Exp</Option>
         </Select>
       </Form.Item>
-      <Form.Item>
+      <Form.Item label="Chapitre :">
         <Select
           mode="tags"
-          style={{ width: "30%" }}
+         
           placeholder="Chapitre"
           onChange={handleChangeCourse}
           defaultValue={location.state.rowData.chapterName}
@@ -348,7 +373,7 @@ const UpdateCourse = (props) => {
           Mesure d'une quantité de la matière
         </Option>
       </Select>*/}
-      <Form.Item>
+      <Form.Item label="Description :">
         <TextArea
           rows={4}
           placeholder="description"
@@ -356,7 +381,7 @@ const UpdateCourse = (props) => {
           onChange={(e) => setDescription(e.target.value)}
         />
       </Form.Item>
-      <Form.Item>
+      <Form.Item label="Modifier un fichier :"> 
         <Upload {...addFiles}>
           <Button icon={<FileAddOutlined />}>Ajouter un fichier</Button>
         </Upload>
@@ -366,12 +391,13 @@ const UpdateCourse = (props) => {
           Ajouter un video
         </Button>
     </Upload>*/}
-      <Form.Item>
+      <Form.Item label="Modifier :">
         <Button htmlType="submit" type="primary" onClick={submit}>
           Modifier
         </Button>
       </Form.Item>
     </Form>
+    </div>
   );
 };
 

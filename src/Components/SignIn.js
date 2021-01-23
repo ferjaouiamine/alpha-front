@@ -9,10 +9,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import UserContext from "../context/userContext";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
-import "../css/errorNotice.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { blue } from "@material-ui/core/colors";
 import main from "../media/login.svg";
+import { Alert } from 'antd';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -115,22 +115,25 @@ export default function SignIn() {
     }
   };
 
+
+  const onClose = (e) => {
+    setError(null)
+  };
+
   return (
     <div className={classes.root}>
       <Grid item container alignItems="center" justify="center">
         <Grid item xs={10} sm={6}>
-          {/*<Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Login
-        </Typography>
-  */}
+          
           {error && (
-            <div className="error-notice">
-              <span>{error}</span>
-              <button onClick={() => setError(undefined)}>X</button>
-            </div>
+             <Alert style={{marginTop:20 ,maxWidth:550}}
+             message="Formulaire invalide"
+             description={error}
+             type="error"
+             showIcon
+             onClose={onClose}
+             closable
+           />
           )}
           <form className={classes.form} onSubmit={submit} noValidate>
             <TextField
@@ -144,6 +147,8 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
+              validators={['required', 'isEmail']}
+              errorMessages={['this field is required', 'email is not valid']}
             />
             {/*<FormControl
             className={clsx(classes.margin, classes.textField)}

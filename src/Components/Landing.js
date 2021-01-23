@@ -16,11 +16,9 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   mainImg: {
-    maxWidth: "100%",
+    maxWidth: "90%",
   },
-  textBlock: {
-    marginTop: 50,
-  },
+  
 }));
 
 export default function Landing() {
@@ -34,10 +32,10 @@ export default function Landing() {
     <div className={classes.root}>
       <Grid item container alignItems="center" justify="center">
         <Grid item xs={10} sm={6}>
-          <div className="textBlock">
+          <div  > 
             <h1>Bienvenue sur notre plateforme</h1>
-            <h4>Commencer votre cours en ligne maintenant</h4>
-            <h4>en créent un compte en cliquant sur ce button</h4>
+            <h2>Commencer votre cours en ligne maintenant</h2>
+            <h2>en créent un compte en cliquant sur ce button</h2>
             <Button type="primary" variant="contained" color="primary">
               <Link
                 style={{ textDecoration: "none", color: "white" }}
@@ -47,8 +45,8 @@ export default function Landing() {
               </Link>
             </Button>
 
-            <div className="textBlock">
-              <h4>vous être un professeur ?</h4>
+            <div  style={{marginTop : 15}}> 
+              <h3>vous êtes professeur ?</h3>
               <Button type="primary" color="primary" variant="contained">
                 <Link
                   style={{ textDecoration: "none", color: "white" }}
@@ -59,8 +57,8 @@ export default function Landing() {
               </Button>
             </div>
           </div>
-          <div className="textBlock">
-            <h4>Vous avez un compte ?</h4>
+          <div style={{marginTop : 15 }}>
+            <h3>Vous avez un compte ?</h3>
             <Button type="primary" color="primary" variant="contained">
               <Link
                 style={{ textDecoration: "none", color: "white" }}

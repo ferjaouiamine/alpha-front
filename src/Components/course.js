@@ -52,7 +52,7 @@ const CourseCard = (params) => {
     svgUrl,
   } = params;
   return (
-    <Card style={{ marginTop: "20%" }} className={classes.cardStyle}>
+    <Card style={{ marginTop: "20%" }} style={{boxShadow: "2px 2px 1px #9E9E9E"}}>
       <CardHeader title={courseName} />
 
       <CardMedia

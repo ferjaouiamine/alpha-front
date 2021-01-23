@@ -5,6 +5,7 @@ import { Upload, Button, message, Form } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import { Select, Input } from "antd";
+import { Alert } from 'antd';
 
 const { Option } = Select;
 const AddCourse = () => {
@@ -29,6 +30,10 @@ const AddCourse = () => {
         svgUrl,
         videoUrl,
       };
+      if (description==undefined ||courseName==undefined ||chapterName==undefined ||classe==undefined ){
+        return setInvalidForm(true)
+      } 
+
       console.log(newCourse);
       const course = await axios.post(
         "http://localhost:3001/api/course",
@@ -47,8 +52,8 @@ const AddCourse = () => {
 
   const { TextArea } = Input;
   const [data] = useState([]); //table data
-
   const [error, setError] = useState();
+  const [invalidForm, setInvalidForm] = useState(false);
   const [course, setCourse] = useState({});
   const [courseName, setCourseName] = useState();
   const [chapterName, setChapterName] = useState();
@@ -89,8 +94,8 @@ const AddCourse = () => {
   };
 
   const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
+    labelCol: { span: 4 },
+    wrapperCol: { span: 14 },
   };
 
   function handleChangeCourse(value) {
@@ -159,7 +164,20 @@ const AddCourse = () => {
     );
   });
 
+  const onClose = (e) => {
+   setInvalidForm(false)
+  };
+
   return (
+    <div>
+      {invalidForm &&   <Alert style={{marginTop:20}}
+      message="Formulaire invalide"
+      description="Veuillez remplir tous les champs."
+      type="error"
+      showIcon
+      closable
+      onClose={onClose}
+    />}
     <Form
       {...layout}
       onSubmit={submit}
@@ -168,12 +186,16 @@ const AddCourse = () => {
         span: 4,
       }}
       wrapperCol={{
-        span: 18,
+        span: 25,
       }}
       size="large"
-      style={{ marginTop: 100, marginLeft: "20%" }}
+      layout="vertical"
+      style={{ marginTop: 100 }}
+      initialValues={{
+        remember: true,
+      }}
     >
-      <Form.Item>
+      <Form.Item label="Matière :" >
         <Select defaultValue="Matière" onChange={handleChangeCourseName}>
           <Option value="Physique">Physique</Option>
           <Option value="Chimie">Chimie</Option>
@@ -189,7 +211,7 @@ const AddCourse = () => {
           <option value="gestion">Gestion</option>*/}
         </Select>
       </Form.Item>
-      <Form.Item>
+      <Form.Item label="Classe :" >
         <Select defaultValue="Classe" onChange={handleChangeClasse}>
           <Option value="1">1 ère Secondaire</Option>
           <Option value="2économie">2 ème économie et serivce</Option>
@@ -206,7 +228,7 @@ const AddCourse = () => {
           <Option value="4Science Exp">Bac Science Exp</Option>
         </Select>
       </Form.Item>
-      <Form.Item>
+      <Form.Item label="Chapitre :">
         <Select
           mode="tags"
           // style={{ width: 300 }}
@@ -230,7 +252,7 @@ const AddCourse = () => {
           Mesure d'une quantité de la matière
         </Option>
       </Select>*/}
-      <Form.Item>
+      <Form.Item label="Description :">
         <TextArea
           rows={4}
           placeholder="Description"
@@ -238,7 +260,7 @@ const AddCourse = () => {
         />
       </Form.Item>
 
-      <Form.Item>
+      <Form.Item label="Ajouter un fichier :">
         <Upload {...addFiles}>
           <Button icon={<UploadOutlined />}>Ajouter un fichier</Button>
         </Upload>
@@ -249,12 +271,13 @@ const AddCourse = () => {
           Ajouter un video
     </Button>
       </Upload>*/}
-      <Form.Item>
+      <Form.Item label="Ajouter :"  >
         <Button htmlType="submit" type="primary" onClick={submit}>
           Ajouter
         </Button>
       </Form.Item>
     </Form>
+    </div>
   );
 };
 

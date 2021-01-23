@@ -22,7 +22,7 @@ import "../css/errorNotice.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { blue } from "@material-ui/core/colors";
 import signup from "../media/signup.svg";
-
+import { Alert } from 'antd';
 /*
 function Copyright() {
   return (
@@ -167,6 +167,11 @@ export default function SignUp() {
     }
   };
 
+  
+  const onClose = (e) => {
+    setError(null)
+  };
+
   return (
     <div className={classes.root}>
       <Grid item container alignItems="center" justify="center">
@@ -177,11 +182,16 @@ export default function SignUp() {
             <Typography component="h1" variant="h5">
               Sign up
   </Typography>*/}
-          {error && (
-            <div className="error-notice">
-              <span>{error}</span>
-              <button onClick={() => setError(undefined)}>X</button>
-            </div>
+          {error && ( 
+              <Alert style={{marginTop:20 ,maxWidth:500,marginBottom : 20}}
+             message="Formulaire invalide"
+             description={error}
+             type="error"
+             showIcon             
+             closable
+             onClose={onClose}
+           />
+            
           )}
           <form className={classes.form} onSubmit={submit} noValidate>
             <Grid container spacing={2}>
@@ -256,12 +266,13 @@ export default function SignUp() {
                 </FormControl>
               </Grid>
 
+                <label>date de naissance :   </label>
               <Grid item xs={12}>
                 <TextField
                   id="date"
-                  label="Data de naissance"
+                  
                   type="date"
-                  className={classes.textField}
+                  
                   InputLabelProps={{
                     shrink: true,
                   }}

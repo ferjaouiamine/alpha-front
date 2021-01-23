@@ -4,6 +4,7 @@ import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import FormControl from "@material-ui/core/FormControl";
 import Axios from "axios";
+import { Breadcrumb } from "antd";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -25,7 +26,7 @@ const Content = () => {
   const classes = useStyles();
   const [error, setError] = useState();
   const [coures, setCoures] = useState([]);
-  let classeSection = localStorage.getItem("classeSection");
+ // let classeSection = localStorage.getItem("classeSection");
 
   useEffect(() => {
     const getCourses = async () => {
@@ -53,15 +54,21 @@ const Content = () => {
   ];
   return (
     <div>
+      <Breadcrumb style={{ marginTop: 20,justifyContent: "flexStart" ,display: "flex"}}>
+       <Breadcrumb.Item> <h2>Mes cours</h2></Breadcrumb.Item>
+        
+      </Breadcrumb>
+
       <FormControl
         variant="filled"
         className={classes.formControl}
       ></FormControl>
       <Grid container spacing={2}>
         {courseContentUnique.map((coursesObejct) =>
-          coursesObejct.classe === classeSection
+          /*coursesObejct.classe === classeSection
             ? getcourseContent(coursesObejct)
-            : null
+            : null*/
+            getcourseContent(coursesObejct)
         )}
       </Grid>
     </div>

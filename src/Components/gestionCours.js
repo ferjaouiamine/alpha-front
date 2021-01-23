@@ -21,10 +21,9 @@ import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
 import axios from "axios";
 import Alert from "@material-ui/lab/Alert";
-import { Link } from "@material-ui/core";
-import { PlusSquareTwoTone } from "@ant-design/icons";
-import { Button } from "antd";
 import { useHistory } from "react-router-dom";
+import { Button } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -231,7 +230,7 @@ function GestionEleves() {
                 },
               },
               {
-                icon: () => <Add />,
+                icon: () => <Button type="primary" style={{color : "white"}} shape="circle" icon={<PlusOutlined />} size="large" />,
                 tooltip: "Ajouter un cours",
                 isFreeAction: true,
                 onClick: () => history.push("/addCourse"),

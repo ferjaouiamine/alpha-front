@@ -34,12 +34,12 @@ const CoursePage = () => {
     return (
       <div style={{ marginTop: "5%" }}>
         <div>
-          <Breadcrumb style={{ marginTop: 20 }}>
-            <Breadcrumb.Item>Mes cours</Breadcrumb.Item>
-            <Breadcrumb.Item>Chapitre</Breadcrumb.Item>
-            <Breadcrumb.Item>{coures.chapterName}</Breadcrumb.Item>
+          <Breadcrumb  style={{ marginTop: 20,justifyContent: "flexStart" ,display: "flex"}}>
+            <h2><Breadcrumb.Item>Mes cours</Breadcrumb.Item></h2>
+            <h2><Breadcrumb.Item>Chapitre</Breadcrumb.Item></h2>
+            <Breadcrumb.Item><h2>{coures.chapterName}</h2></Breadcrumb.Item>
           </Breadcrumb>
-          <div style={{ marginTop: 20 }}>
+          <div style={{ marginTop: 20 ,boxShadow: "2px 4px 2px #9E9E9E"}}>
             <Collapse bordered={true} className="site-collapse-custom-collapse">
               <Panel header="Liste des videos">
                 <Collapse accordion>
@@ -59,7 +59,7 @@ const CoursePage = () => {
             </Collapse>
           </div>
 
-          <div style={{ marginTop: 40 }}>
+          <div style={{ marginTop: 40 ,boxShadow: "2px 4px 2px #9E9E9E"}}>
             <Collapse bordered={true} className="site-collapse-custom-collapse">
               <Panel header="Lesson Attachments">
                 <Collapse accordion>
