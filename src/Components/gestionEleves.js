@@ -46,7 +46,7 @@ const tableIcons = {
 };
 
 const api = axios.create({
-  baseURL: `https://alpha-school.herokuapp.com/api`,
+  baseURL: `http://localhost:3001/api`,
 });
 
 function GestionEleves() {
@@ -133,34 +133,7 @@ function GestionEleves() {
     }
   };
 
-  const handleRowAdd = (newData, resolve) => {
-    //validation
-    let errorList = [];
-
-    if (errorList.length < 1) {
-      //no error
-      api
-        .post("/users", newData)
-        .then((res) => {
-          let dataToAdd = [...data];
-          dataToAdd.push(newData);
-          setData(dataToAdd);
-          resolve();
-          setErrorMessages([]);
-          setIserror(false);
-        })
-        .catch((error) => {
-          setErrorMessages(["Cannot add data. Server error!"]);
-          setIserror(true);
-          resolve();
-        });
-    } else {
-      setErrorMessages(errorList);
-      setIserror(true);
-      resolve();
-    }
-  };
-
+   
   const handleRowDelete = (oldData, resolve) => {
     api
       .delete("/student/" + oldData._id)

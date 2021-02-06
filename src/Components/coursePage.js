@@ -50,7 +50,7 @@ const CoursePage = () => {
                         controlsList="nodownload"
                         width="750"
                         height="470"
-                        src={`https://alpha-school.herokuapp.com/uploads/${v}`}
+                        src={`http://localhost:3001/uploads/${v}`}
                       ></video>
                     </Panel>
                   ))}
@@ -70,7 +70,7 @@ const CoursePage = () => {
                           className="embed-responsive-item"
                           width="1000"
                           height="700"
-                          src={`https://alpha-school.herokuapp.com/uploads/${p}#toolbar=0`}
+                          src={`http://localhost:3001/uploads/${p}#toolbar=0`}
                         ></iframe>
                       </Panel>
                     );

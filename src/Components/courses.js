@@ -31,7 +31,7 @@ const Content = () => {
   useEffect(() => {
     const getCourses = async () => {
       try {
-        const coursesRes = Axios.get("https://alpha-school.herokuapp.com/api/courses");
+        const coursesRes = Axios.get("http://localhost:3001/api/courses");
         setCoures((await coursesRes).data.data);
       } catch (err) {
         err && setError(err);
