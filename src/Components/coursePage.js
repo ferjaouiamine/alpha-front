@@ -4,9 +4,7 @@ import { useLocation } from "react-router-dom";
 import Axios from "axios";
 import Progress from "./progress";
 import { Collapse } from "antd";
-import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import { makeStyles } from "@material-ui/core/styles";
-import Link from "@material-ui/core/Link";
 import { Breadcrumb } from "antd";
 
 const useStyles = makeStyles((theme) => ({
@@ -68,7 +66,7 @@ const CoursePage = () => {
                       <Panel header={p} key={i + 1}>
                         <iframe
                           className="embed-responsive-item"
-                          width="1000"
+                          width="900"
                           height="700"
                           src={`http://localhost:3001/uploads/${p}#toolbar=0`}
                         ></iframe>
