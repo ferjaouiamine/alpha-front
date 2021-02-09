@@ -155,7 +155,7 @@ export default function SignUp() {
       };
       console.log(newUser);
       const registerRes = await Axios.post(
-        "http://37.59.204.215:3001/api/student/register",
+        "http://37.59.204.215:8080/api/student/register",
         newUser
       );
       console.log(registerRes);

@@ -87,7 +87,7 @@ export default function SignIn() {
       setLoading(true);
       const loginUser = { email, password };
       const loginRes = await Axios.post(
-        "http://37.59.204.215:3001/api/login",
+        "http://37.59.204.215:8080/api/login",
         loginUser
       );
       setUserData({
