@@ -31,7 +31,7 @@ const Content = () => {
   useEffect(() => {
     const getCourses = async () => {
       try {
-        const coursesRes = Axios.get("http://37.59.204.215:8080/api/courses");
+        const coursesRes = Axios.get("http://localhost:3001/api/courses");
         setCoures((await coursesRes).data.data);
       } catch (err) {
         err && setError(err);

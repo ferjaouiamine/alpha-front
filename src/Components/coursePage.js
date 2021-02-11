@@ -48,7 +48,7 @@ const CoursePage = () => {
                         controlsList="nodownload"
                         width="750"
                         height="470"
-                        src={`http://37.59.204.215:8080/uploads/${v}`}
+                        src={`http://localhost:3001/uploads/${v}`}
                       ></video>
                     </Panel>
                   ))}
@@ -68,7 +68,7 @@ const CoursePage = () => {
                           className="embed-responsive-item"
                           width="900"
                           height="700"
-                          src={`http://37.59.204.215:8080/uploads/${p}#toolbar=0`}
+                          src={`http://localhost:3001/uploads/${p}#toolbar=0`}
                         ></iframe>
                       </Panel>
                     );
@@ -85,7 +85,7 @@ const CoursePage = () => {
   useEffect(() => {
     const getCourses = async () => {
       try {
-        const coursesRes = Axios.get(`http://37.59.204.215:8080/api/course/${id}`);
+        const coursesRes = Axios.get(`http://localhost:3001/api/course/${id}`);
         setPdf((await coursesRes).data.data.pdfUrl);
         setVideo((await coursesRes).data.data.videoUrl);
         setCoures((await coursesRes).data.data);
