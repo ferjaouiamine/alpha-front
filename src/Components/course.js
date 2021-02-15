@@ -33,28 +33,22 @@ const CourseCard = (params) => {
       try {
         const coursesRes = await Axios.get("http://localhost:3001/api/courses");
         setCoures((await coursesRes).data.data);
+        
       } catch (err) {
         err && setError(err);
-        console.log(error);
       }
     };
     getCourses();
   }, []);
 
   const {
-    _id,
-    chapterName,
-    videoUrl,
-    pdfUrl,
-
-    description,
     courseName,
     svgUrl,
   } = params;
   return (
+
     <Card style={{ marginTop: "20%" }} style={{boxShadow: "2px 2px 1px #9E9E9E"}}>
       <CardHeader title={courseName} />
-
       <CardMedia
         className={classes.media}
         image={svgUrl}

@@ -311,7 +311,6 @@ const UpdateCourse = (props) => {
         <Select
           onChange={handleChangeCourseName}
           defaultValue={location.state.rowData.courseName}
-          value={location.state.rowData.courseName}
         >
           <Option value="Physique">Physique</Option>
           <Option value="Chimie">Chimie</Option>
@@ -329,7 +328,6 @@ const UpdateCourse = (props) => {
       </Form.Item>
       <Form.Item label="Classe :" >
         <Select
-          value={location.state.rowData.classe}
           onChange={handleChangeClasse}
           defaultValue={location.state.rowData.classe}
         >

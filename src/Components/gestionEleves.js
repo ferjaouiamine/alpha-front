@@ -69,14 +69,25 @@ function GestionEleves() {
     { title: "Nom", field: "firstname" },
     { title: "Prénom", field: "lastname" },
     { title: "Email", field: "email" },
-    { title: "Classe", field: "classe" },
-    { title: "Branche", field: "section" },
+    { title: "Classe", field: "classe" , lookup:  { 1: "1", 2: "2",3: "3",4: "4" }},
+    { title: "Branche", field: "section" ,lookup:  {"": "", "économie": "économie et serivce"
+    ,"Science Exp": "Scientifique",
+    "Informatique": "Informatique" ,
+    "mathématiques":"Mathématiques"  ,
+    "Techniques":"Techniques",
+    "Lettre":"Lettre"
+    }},
 
     {
       title: "Compte",
       field: "status",
       lookup: { true: "activer", false: "desactiver" },
     },
+
+
+
+
+
   ];
   const [data, setData] = useState([]); //table data
 

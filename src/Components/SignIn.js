@@ -1,10 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
-
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
-
 import { makeStyles } from "@material-ui/core/styles";
 import UserContext from "../context/userContext";
 import Axios from "axios";
@@ -218,7 +216,7 @@ export default function SignIn() {
           </form>
         </Grid>
         <Grid item xs={10} sm={6}>
-          <img className={classes.mainImg} src={main}></img>
+          <img className={classes.mainImg} src={main}/>
         </Grid>
       </Grid>
     </div>

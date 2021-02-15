@@ -30,8 +30,10 @@ const useStyles = makeStyles((theme) => ({
     display: "none",
   },
   button: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(2),
+   
   },
+
 }));
 
 export default function NavBar() {
@@ -230,6 +232,7 @@ export default function NavBar() {
     if (userData.isAuth === false) {
       return (
         <>
+          
           <Button
             startIcon={<HomeRoundedIcon style={{ fill: "white" }} />}
             className={classes.button}
