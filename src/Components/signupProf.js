@@ -165,7 +165,7 @@ export default function SignupProf() {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </Grid>
-
+{/*
                 <Grid item xs={12}>
                   <TextField
                     id="date"
@@ -178,7 +178,7 @@ export default function SignupProf() {
                     onChange={(e) => setBirthdayDate(e.target.value)}
                   />
                 </Grid>
-
+*/}
                 <Grid item xs={12}>
                   <FormControl
                     variant="outlined"

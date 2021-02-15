@@ -5,6 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import FormControl from "@material-ui/core/FormControl";
 import Axios from "axios";
 import { Breadcrumb } from "antd";
+import Progress from "./progress";
+import emptyImg from "../media/empty.svg";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -20,12 +22,17 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2),
     },
   },
+  svg : {
+    maxWidth: "60%",
+  }
 }));
 
 const Content = () => {
   const classes = useStyles();
   const [error, setError] = useState();
   const [coures, setCoures] = useState([]);
+  const [loading, setLoading] = useState(true);
+
  // let classeSection = localStorage.getItem("classeSection");
 
   useEffect(() => {
@@ -33,9 +40,10 @@ const Content = () => {
       try {
         const coursesRes = Axios.get("http://37.59.204.215:3001/api/courses");
         setCoures((await coursesRes).data.data);
+        setLoading(false);
       } catch (err) {
         err && setError(err);
-        console.log(error);
+        setLoading(false);
       }
     };
 
@@ -49,16 +57,21 @@ const Content = () => {
       </Grid>
     );
   };
+
   const courseContentUnique = [
     ...new Map(coures.map((item) => [item["courseName"], item])).values(),
   ];
   return (
-    <div>
-      <Breadcrumb style={{ marginTop: 20,justifyContent: "flexStart" ,display: "flex"}}>
+   
+   <div><Breadcrumb style={{ marginTop: 20,justifyContent: "flexStart" ,display: "flex"}}>
        <Breadcrumb.Item> <h2>Mes cours</h2></Breadcrumb.Item>
         
       </Breadcrumb>
 
+     {loading ? <Progress/> :
+          coures.length === 0 ? <img src={emptyImg} className={classes.svg} /> : (
+
+       <>
       <FormControl
         variant="filled"
         className={classes.formControl}
@@ -71,6 +84,9 @@ const Content = () => {
             getcourseContent(coursesObejct)
         )}
       </Grid>
+      </>
+     )}
+      
     </div>
   );
 };

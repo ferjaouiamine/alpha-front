@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { Breadcrumb } from "antd";
+import emptyImg from "../media/empty.svg";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -23,14 +24,21 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2),
     },
   },
+  svg : {
+    maxWidth: "60%",
+  }
 }));
 
 const CoursesByChapter = () => {
+
   const location = useLocation();
   const classes = useStyles();
   let classeSection = localStorage.getItem("classeSection");
+ 
   const getcourseContent = (coures) => {
+    
     return (
+      <Grid container spacing={2} >
       <Grid item xs={12} sm={4}>
         <Card style={{marginTop: "20%",boxShadow: "2px 2px 1px #9E9E9E"}}>
           <CardHeader
@@ -53,8 +61,15 @@ const CoursesByChapter = () => {
           </CardActions>
         </Card>
       </Grid>
+      </Grid>
     );
   };
+
+  const filtredCourses = () => {
+    return location.state.data.filter(coures => (coures.classe === classeSection &&
+      coures.courseName ===
+      location.pathname.substr(11, location.pathname.length)))
+  }
 
   return (
     <div>
@@ -63,15 +78,17 @@ const CoursesByChapter = () => {
          <Breadcrumb.Item><h2>Chapitre</h2></Breadcrumb.Item>
       </Breadcrumb>
 
-      <Grid container spacing={2} >
-        {location.state.data.map((coures) =>
+        {       
+        filtredCourses().length === 0 ? <img src={emptyImg} className={classes.svg} /> :
+        filtredCourses().map((coures) => getcourseContent(coures) )
+        
+        /*location.state.data.map((coures) =>
           coures.classe === classeSection &&
           coures.courseName ===
             location.pathname.substr(11, location.pathname.length)
             ? getcourseContent(coures)
             : null
-        )}
-      </Grid>
+        )*/ }
     </div>
   );
 };

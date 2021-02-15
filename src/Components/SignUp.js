@@ -1,14 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
-import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
 import "../css/Signup.css";
 import "antd/dist/antd.css";
 import "date-fns";
@@ -89,6 +84,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     marginTop: "10%",
+    marginBottom : "10%"
   },
   wrapper: {
     margin: theme.spacing(1),
@@ -265,7 +261,7 @@ export default function SignUp() {
                   </Select>
                 </FormControl>
               </Grid>
-
+{/*  
                 <label>date de naissance :   </label>
               <Grid item xs={12}>
                 <TextField
@@ -279,7 +275,7 @@ export default function SignUp() {
                   onChange={(e) => setBirthdayDate(e.target.value)}
                 />
               </Grid>
-
+                */}
               <Grid item xs={12}>
                 <TextField
                   variant="outlined"

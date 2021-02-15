@@ -44,7 +44,7 @@ export default function Landing() {
                 Inscription élève
               </Link>
             </Button>
-
+{/* 
             <div  style={{marginTop : 15}}> 
               <h3>vous êtes professeur ?</h3>
               <Button type="primary" color="primary" variant="contained">
@@ -55,7 +55,7 @@ export default function Landing() {
                   Inscription professeur
                 </Link>
               </Button>
-            </div>
+            </div>*/}
           </div>
           <div style={{marginTop : 15 }}>
             <h3>Vous avez un compte ?</h3>
@@ -70,7 +70,7 @@ export default function Landing() {
           </div>
         </Grid>
         <Grid item xs={10} sm={6}>
-          <img className={classes.mainImg} src={main}></img>
+          <img className={classes.mainImg} src={main}/>
         </Grid>
       </Grid>
     </div>
