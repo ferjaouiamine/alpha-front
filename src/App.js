@@ -39,7 +39,7 @@ const App = () => {
         );
         console.log(tokenRes);
         if (tokenRes.data) {*/
-        const userRes = await Axios.get("http://37.59.204.215:3001/api/userById", {
+        const userRes = await Axios.get("localhost:3001/api/userById", {
           headers: { token: token },
         });
         setUserData({

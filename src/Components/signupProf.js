@@ -96,7 +96,7 @@ export default function SignupProf() {
       };
       console.log(newUser);
       const registerRes = await Axios.post(
-        "http://37.59.204.215:3001/api/prof/createProf",
+        "localhost:3001/api/prof/createProf",
         newUser
       );
       console.log(registerRes);
