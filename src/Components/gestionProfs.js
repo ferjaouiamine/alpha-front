@@ -46,7 +46,7 @@ const tableIcons = {
 };
 
 const api = axios.create({
-  baseURL: `localhost:3001/api/`,
+  baseURL: `https://localhost:3001/api/`,
 });
 
 function GestionEleves() {

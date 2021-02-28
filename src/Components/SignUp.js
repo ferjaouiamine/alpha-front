@@ -151,7 +151,7 @@ export default function SignUp() {
       };
       console.log(newUser);
       const registerRes = await Axios.post(
-        "localhost:3001/api/student/register",
+        "https://localhost:3001/api/student/register",
         newUser
       );
       console.log(registerRes);
