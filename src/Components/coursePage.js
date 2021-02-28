@@ -54,6 +54,7 @@ const CoursePage = () => {
                         width="100%"
                         height="100%"
                         src={`http://37.59.204.215:3001/uploads/${v}`}
+
                       ></video>
                     </Panel>
                   ))}
@@ -73,7 +74,9 @@ const CoursePage = () => {
                           className="embed-responsive-item"
                           width="100%"
                           height="600"
+
                           src={`http://37.59.204.215:3001/uploads/${p}#toolbar=0`}
+
                         ></iframe>
                       </Panel>
                     );
@@ -91,6 +94,7 @@ const CoursePage = () => {
     const getCourses = async () => {
       try {
         const coursesRes = Axios.get(`http://37.59.204.215:3001/api/course/${id}`);
+
         setPdf((await coursesRes).data.data.pdfUrl);
         setVideo((await coursesRes).data.data.videoUrl);
         setCoures((await coursesRes).data.data);
