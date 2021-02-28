@@ -54,6 +54,10 @@ const CoursePage = () => {
                         width="100%"
                         height="100%"
                         src={`http://37.59.204.215:3001/uploads/${v}`}
+<<<<<<< HEAD
+=======
+
+>>>>>>> e8fe552edcc49a93eae35a8719765ed9c4c1a29c
                       ></video>
                     </Panel>
                   ))}
@@ -73,7 +77,13 @@ const CoursePage = () => {
                           className="embed-responsive-item"
                           width="100%"
                           height="600"
+<<<<<<< HEAD
                           src={`http://37.59.204.215:3001/uploads/${p}#toolbar=0`}
+=======
+
+                          src={`http://37.59.204.215:3001/uploads/${p}#toolbar=0`}
+
+>>>>>>> e8fe552edcc49a93eae35a8719765ed9c4c1a29c
                         ></iframe>
                       </Panel>
                     );
@@ -91,6 +101,10 @@ const CoursePage = () => {
     const getCourses = async () => {
       try {
         const coursesRes = Axios.get(`http://37.59.204.215:3001/api/course/${id}`);
+<<<<<<< HEAD
+=======
+
+>>>>>>> e8fe552edcc49a93eae35a8719765ed9c4c1a29c
         setPdf((await coursesRes).data.data.pdfUrl);
         setVideo((await coursesRes).data.data.videoUrl);
         setCoures((await coursesRes).data.data);
