@@ -10,7 +10,7 @@ import { Alert } from 'antd';
 const { Option } = Select;
 const AddCourse = () => {
   axios.create({
-    baseURL: `http://127.0.0.1:3001/api/`,
+    baseURL: `http://37.59.204.215:3001/api/`,
   });
 
   let history = useHistory();
@@ -36,7 +36,7 @@ const AddCourse = () => {
 
       console.log(newCourse);
       const course = await axios.post(
-        "http://127.0.0.1:3001/api/course",
+        "http://37.59.204.215:3001/api/course",
         newCourse
       );
       console.log(course);
@@ -68,7 +68,7 @@ const AddCourse = () => {
   const addFiles = {
     name: "file",
     multiple: true,
-    action: "http://127.0.0.1:3001/api/upload/uploadFile",
+    action: "http://37.59.204.215:3001/api/upload/uploadFile",
     beforeUpload: (file) => {
       if (file.type !== "application/pdf" && file.type !== "video/mp4") {
         return message.error(`${file.name} type de fichier non autorisé.`);
