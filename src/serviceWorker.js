@@ -14,7 +14,7 @@ const is= Boolean(
   window.location.hostname === '37.59.204.215' ||
     // [::1] is the IPv6 37.59.204.215 address.
     window.location.hostname === '[::1]' ||
-    // 127.0.0.0/8 are considered localhost for IPv4.
+    // 127.0.0.0/8 are considered 37.59.204.215 for IPv4.
     window.location.hostname.match(
       /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
     )
@@ -35,10 +35,11 @@ export function register(config) {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
       if (is) {
+
         // This is running on 37.59.204.215. Let's check if a service worker still exists or not.
         checkValidServiceWorker(swUrl, config);
 
-        // Add some additional logging to localhost, pointing developers to the
+        // Add some additional logging to 37.59.204.215, pointing developers to the
         // service worker/PWA documentation.
         navigator.serviceWorker.ready.then(() => {
           console.log(
@@ -47,7 +48,7 @@ export function register(config) {
           );
         });
       } else {
-        // Is not localhost. Just register service worker
+        // Is not 37.59.204.215. Just register service worker
         registerValidSW(swUrl, config);
       }
     });
