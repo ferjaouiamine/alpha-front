@@ -64,13 +64,13 @@ const CoursesByChapter = () => {
       </Grid>
     );
   };
-
+/*
   const filtredCourses = () => {
     return location.state.data.filter(coures => (coures.classe === classeSection &&
       coures.courseName ===
       location.pathname.substr(11, location.pathname.length)))
   }
-
+*/
   return (
     <div>
       <Breadcrumb style={{ marginTop: 20,justifyContent: "flexStart" ,display: "flex"}}>
@@ -78,17 +78,17 @@ const CoursesByChapter = () => {
          <Breadcrumb.Item><h2>Chapitre</h2></Breadcrumb.Item>
       </Breadcrumb>
 
-        {       
+        {       /*
         filtredCourses().length === 0 ? <img src={emptyImg} className={classes.svg} /> :
         filtredCourses().map((coures) => getcourseContent(coures) )
-        
-        /*location.state.data.map((coures) =>
+        */
+        location.state.data.map((coures) =>
           coures.classe === classeSection &&
           coures.courseName ===
             location.pathname.substr(11, location.pathname.length)
             ? getcourseContent(coures)
             : null
-        )*/ }
+        )}
     </div>
   );
 };
