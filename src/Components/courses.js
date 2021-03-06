@@ -38,7 +38,7 @@ const Content = () => {
   useEffect(() => {
     const getCourses = async () => {
       try {
-        const coursesRes = Axios.get("http://alphaskool.tn/api/courses");
+        const coursesRes = Axios.get("/api/courses");
         setCoures((await coursesRes).data.data);
         setLoading(false);
       } catch (err) {

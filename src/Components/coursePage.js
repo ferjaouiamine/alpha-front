@@ -91,7 +91,7 @@ const CoursePage = () => {
   useEffect(() => {
     const getCourses = async () => {
       try {
-        const coursesRes = Axios.get(`http://alphaskool.tn/api/course/${id}`);
+        const coursesRes = Axios.get(`/api/course/${id}`);
         setPdf((await coursesRes).data.data.pdfUrl);
         setVideo((await coursesRes).data.data.videoUrl);
         setCoures((await coursesRes).data.data);

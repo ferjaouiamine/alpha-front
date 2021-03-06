@@ -48,7 +48,7 @@ const tableIcons = {
 };
 
 const api = axios.create({
-  baseURL: `http://alphaskool.tn/api/`,
+  baseURL: `/api/`,
 });
 
 function GestionEleves() {

@@ -151,7 +151,7 @@ export default function SignUp() {
       };
       console.log(newUser);
       const registerRes = await Axios.post(
-        "http://alphaskool.tn/api/student/register",
+        "/api/student/register",
         newUser
       );
       console.log(registerRes);

@@ -85,7 +85,7 @@ export default function SignIn() {
       setLoading(true);
       const loginUser = { email, password };
       const loginRes = await Axios.post(
-        "http://alphaskool.tn/api/login",
+        "/api/login",
         loginUser
       );
       setUserData({
