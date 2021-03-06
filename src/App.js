@@ -39,7 +39,7 @@ const App = () => {
         );
         console.log(tokenRes);
         if (tokenRes.data) {*/
-        const userRes = await Axios.get("http://localhost:3001/api/userById", {
+        const userRes = await Axios.get("http://localhost/api/userById", {
           headers: { token: token },
         });
         setUserData({
