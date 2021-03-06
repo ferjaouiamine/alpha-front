@@ -96,7 +96,7 @@ export default function SignupProf() {
       };
       console.log(newUser);
       const registerRes = await Axios.post(
-        "http://0.0.0.0:3001/api/prof/createProf",
+        "http://alphaskool.tn/api/prof/createProf",
         newUser
       );
       console.log(registerRes);

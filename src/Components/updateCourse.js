@@ -8,7 +8,7 @@ import "../css/userDataTable.css";
 const { Option } = Select;
 const UpdateCourse = (props) => {
   axios.create({
-    baseURL: `http://0.0.0.0:3001/api/`,
+    baseURL: `http://alphaskool.tn/api/`,
   });
 
   const location = useLocation();
@@ -35,7 +35,7 @@ const UpdateCourse = (props) => {
         return setInvalidForm(true)
       } 
       const course = await axios.put(
-        `http://0.0.0.0:3001/api/course/${location.state.rowData._id}`,
+        `http://alphaskool.tn/api/course/${location.state.rowData._id}`,
         newCourse
       );
       setCourse(course);
@@ -87,7 +87,7 @@ const UpdateCourse = (props) => {
       location.state.rowData.pdfUrl.map((file) => {
         defaultfiles.push({
           name: file,
-          url: `http://0.0.0.0:3001/api/${file}`,
+          url: `http://alphaskool.tn/api/${file}`,
         });
         return defaultfiles;
       });
@@ -96,7 +96,7 @@ const UpdateCourse = (props) => {
       location.state.rowData.videoUrl.map((file) => {
         defaultfiles.push({
           name: file,
-          url: `http://0.0.0.0:3001/api/${file}`,
+          url: `http://alphaskool.tn/api/${file}`,
         });
         return defaultfiles;
       });
@@ -109,7 +109,7 @@ const UpdateCourse = (props) => {
   const addFiles = {
     name: "file",
     multiple: true,
-    action: "http://0.0.0.0:3001/api/upload/uploadFile",
+    action: "http://alphaskool.tn/api/upload/uploadFile",
     beforeUpload: (file) => {
       if (file.type !== "application/pdf" && file.type !== "video/mp4") {
         return message.error(`${file.name} type de fichier non autorisé.`);
@@ -140,7 +140,7 @@ const UpdateCourse = (props) => {
         setVideo(location.state.rowData.videoUrl);
         let videoUrl = [...new Set(video)];
         axios.put(
-          `http://0.0.0.0:3001/api/course/${location.state.rowData._id}`,
+          `http://alphaskool.tn/api/course/${location.state.rowData._id}`,
           pdfUrl,
           videoUrl
         );
@@ -158,7 +158,7 @@ const UpdateCourse = (props) => {
         let pdfUrl = [...new Set(pdf)];
         setPdf(location.state.rowData.pdfUrl);
         axios.put(
-          `http://0.0.0.0:3001/api/course/${location.state.rowData._id}`,
+          `http://alphaskool.tn/api/course/${location.state.rowData._id}`,
           videoUrl,
           pdfUrl
         );

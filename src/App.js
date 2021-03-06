@@ -39,7 +39,7 @@ const App = () => {
         );
         console.log(tokenRes);
         if (tokenRes.data) {*/
-        const userRes = await Axios.get("http://0.0.0.0:3001/api/userById", {
+        const userRes = await Axios.get("http://alphaskool.tn/api/userById", {
           headers: { token: token },
         });
         setUserData({
