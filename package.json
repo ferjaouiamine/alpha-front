@@ -1,7 +1,7 @@
 {
   "name": "kratou",
   "homepage": "http://alphaskool.tn",
-  "proxy": "http://37.59.204.215:3001",
+  "proxy": "http://localhost:3001",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
