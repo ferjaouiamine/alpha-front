@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { Breadcrumb, Collapse } from "antd";
+import Axios from "axios";
+import React, { useEffect, useState } from "react";
 //import PDFViewer from "pdf-viewer-reactjs";
 import { useLocation } from "react-router-dom";
-import Axios from "axios";
 import Progress from "./progress";
-import { Collapse } from "antd";
-import { Breadcrumb } from "antd";
 
 
 const CoursePage = () => {
@@ -53,7 +52,7 @@ const CoursePage = () => {
                         controlsList="nodownload"
                         width="100%"
                         height="100%"
-                        src={`http://localhost/uploads/${v}`}
+                        src={`http://0.0.0.0:3001/uploads/${v}`}
                       ></video>
                     </Panel>
                   ))}
@@ -74,7 +73,7 @@ const CoursePage = () => {
                           width="100%"
                           height="600"
 
-                          src={`http://localhost/uploads/${p}#toolbar=0`}
+                          src={`http://0.0.0.0:3001/uploads/${p}#toolbar=0`}
 
                         ></iframe>
                       </Panel>
@@ -92,7 +91,7 @@ const CoursePage = () => {
   useEffect(() => {
     const getCourses = async () => {
       try {
-        const coursesRes = Axios.get(`http://localhost/api/course/${id}`);
+        const coursesRes = Axios.get(`http://0.0.0.0:3001/api/course/${id}`);
         setPdf((await coursesRes).data.data.pdfUrl);
         setVideo((await coursesRes).data.data.videoUrl);
         setCoures((await coursesRes).data.data);

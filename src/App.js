@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import NavBar from "./Components/Navbar";
-import SignUp from "./Components/SignUp";
-import SignIn from "./Components/SignIn";
-import SignupProf from "./Components/signupProf";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Landing from "./Components/Landing";
-import Courses from "./Components/courses";
-import CoursePage from "./Components/coursePage";
-import CoursesByChapter from "./Components/coursesByChapter";
 import { Grid } from "@material-ui/core";
+import Axios from "axios";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import AddCourse from "./Components/addCourse";
+import CoursePage from "./Components/coursePage";
+import Courses from "./Components/courses";
+import CoursesByChapter from "./Components/coursesByChapter";
+import GestionCours from "./Components/gestionCours";
 import GestionEleves from "./Components/gestionEleves";
 import GestionProfs from "./Components/gestionProfs";
-import GestionCours from "./Components/gestionCours";
-import UserContext from "./context/userContext";
-import Axios from "axios";
-import AddCourse from "./Components/addCourse";
+import Landing from "./Components/Landing";
+import NavBar from "./Components/Navbar";
+import SignIn from "./Components/SignIn";
+import SignUp from "./Components/SignUp";
+import SignupProf from "./Components/signupProf";
 import UpdateCourse from "./Components/updateCourse";
+import UserContext from "./context/userContext";
 
 const App = () => {
   const [userData, setUserData] = useState({});
@@ -39,7 +39,7 @@ const App = () => {
         );
         console.log(tokenRes);
         if (tokenRes.data) {*/
-        const userRes = await Axios.get("http://localhost/api/userById", {
+        const userRes = await Axios.get("http://0.0.0.0:3001/api/userById", {
           headers: { token: token },
         });
         setUserData({

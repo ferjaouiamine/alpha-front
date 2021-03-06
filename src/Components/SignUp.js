@@ -1,23 +1,23 @@
-import React, { useState, useContext, useEffect } from "react";
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Link from "@material-ui/core/Link";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
-import "../css/Signup.css";
-import "antd/dist/antd.css";
-import "date-fns";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import InputLabel from "@material-ui/core/InputLabel";
-import UserContext from "../context/userContext";
-import Axios from "axios";
-import { useHistory } from "react-router-dom";
-import "../css/errorNotice.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { blue } from "@material-ui/core/colors";
-import signup from "../media/signup.svg";
+import FormControl from "@material-ui/core/FormControl";
+import Grid from "@material-ui/core/Grid";
+import InputLabel from "@material-ui/core/InputLabel";
+import Link from "@material-ui/core/Link";
+import Select from "@material-ui/core/Select";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
 import { Alert } from 'antd';
+import "antd/dist/antd.css";
+import Axios from "axios";
+import "date-fns";
+import React, { useContext, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+import UserContext from "../context/userContext";
+import "../css/errorNotice.css";
+import "../css/Signup.css";
+import signup from "../media/signup.svg";
 /*
 function Copyright() {
   return (
@@ -151,7 +151,7 @@ export default function SignUp() {
       };
       console.log(newUser);
       const registerRes = await Axios.post(
-        "http://localhost/api/student/register",
+        "http://0.0.0.0:3001/api/student/register",
         newUser
       );
       console.log(registerRes);

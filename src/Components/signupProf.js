@@ -1,24 +1,24 @@
-import React, { useState, useContext, useEffect } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import Link from "@material-ui/core/Link";
-import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import "../css/Signup.css";
-import "antd/dist/antd.css";
-import "date-fns";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
+import Grid from "@material-ui/core/Grid";
 import InputLabel from "@material-ui/core/InputLabel";
-import UserContext from "../context/userContext";
+import Link from "@material-ui/core/Link";
+import Select from "@material-ui/core/Select";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import "antd/dist/antd.css";
 import Axios from "axios";
+import "date-fns";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import UserContext from "../context/userContext";
 import "../css/errorNotice.css";
+import "../css/Signup.css";
 /*
 function Copyright() {
   return (
@@ -96,7 +96,7 @@ export default function SignupProf() {
       };
       console.log(newUser);
       const registerRes = await Axios.post(
-        "http://localhost/api/prof/createProf",
+        "http://0.0.0.0:3001/api/prof/createProf",
         newUser
       );
       console.log(registerRes);

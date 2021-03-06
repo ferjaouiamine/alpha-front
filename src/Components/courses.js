@@ -1,12 +1,12 @@
-import React, { useState, useContext, useEffect } from "react";
-import CourseCard from "./course";
 import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import FormControl from "@material-ui/core/FormControl";
-import Axios from "axios";
+import { makeStyles } from "@material-ui/core/styles";
 import { Breadcrumb } from "antd";
-import Progress from "./progress";
+import Axios from "axios";
+import React, { useEffect, useState } from "react";
 import emptyImg from "../media/empty.svg";
+import CourseCard from "./course";
+import Progress from "./progress";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -38,7 +38,7 @@ const Content = () => {
   useEffect(() => {
     const getCourses = async () => {
       try {
-        const coursesRes = Axios.get("http://localhost/api/courses");
+        const coursesRes = Axios.get("http://0.0.0.0:3001/api/courses");
         setCoures((await coursesRes).data.data);
         setLoading(false);
       } catch (err) {

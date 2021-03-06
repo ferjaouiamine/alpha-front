@@ -1,16 +1,14 @@
-import React, { useState } from "react";
-import "../css/userDataTable.css";
-import axios from "axios";
-import { Upload, Button, message, Form } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
+import { Alert, Button, Form, Input, message, Select, Upload } from "antd";
+import axios from "axios";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Select, Input } from "antd";
-import { Alert } from 'antd';
+import "../css/userDataTable.css";
 
 const { Option } = Select;
 const AddCourse = () => {
   axios.create({
-    baseURL: `http://localhost/api/`,
+    baseURL: `http://0.0.0.0:3001/api/`,
   });
 
   let history = useHistory();
@@ -36,7 +34,7 @@ const AddCourse = () => {
 
       console.log(newCourse);
       const course = await axios.post(
-        "http://localhost/api/course",
+        "http://0.0.0.0:3001/api/course",
         newCourse
       );
       console.log(course);
@@ -68,7 +66,7 @@ const AddCourse = () => {
   const addFiles = {
     name: "file",
     multiple: true,
-    action: "http://localhost/api/upload/uploadFile",
+    action: "http://0.0.0.0:3001/api/upload/uploadFile",
     beforeUpload: (file) => {
       if (file.type !== "application/pdf" && file.type !== "video/mp4") {
         return message.error(`${file.name} type de fichier non autorisé.`);
