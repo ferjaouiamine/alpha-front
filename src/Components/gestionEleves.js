@@ -45,7 +45,7 @@ const tableIcons = {
 };
 
 const api = axios.create({
-  baseURL: `/api`,
+  baseURL: `/api/`,
 });
 
 function GestionEleves() {
