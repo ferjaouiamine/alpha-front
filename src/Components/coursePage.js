@@ -73,7 +73,7 @@ const CoursePage = () => {
                           width="100%"
                           height="600"
 
-                          src={`http://alphaskool.tn/uploads/${p}#toolbar=0`}
+                          src={`/uploads/${p}#toolbar=0`}
 
                         ></iframe>
                       </Panel>
