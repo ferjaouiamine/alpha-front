@@ -52,7 +52,7 @@ const CoursePage = () => {
                         controlsList="nodownload"
                         width="100%"
                         height="100%"
-                        src={`http://alphaskool.tn/uploads/${v}`}
+                        src={`/uploads/${v}`}
                       ></video>
                     </Panel>
                   ))}
