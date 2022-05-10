@@ -151,7 +151,7 @@ export default function SignUp() {
       };
       console.log(newUser);
       const registerRes = await Axios.post(
-        "/api/student/register",
+        "http://localhost:3001/api/student/register",
         newUser
       );
       console.log(registerRes);
@@ -171,7 +171,7 @@ export default function SignUp() {
   return (
     <div className={classes.root}>
       <Grid item container alignItems="center" justify="center">
-        <Grid item xs={10} sm={6}>
+        <Grid item xs={10} sm={4}>
           {/*<Avatar className={classes.avatar}>
               <LockOutlinedIcon />
             </Avatar>
@@ -210,7 +210,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="lastName"
-                  label="prénom"
+                  label="Prénom"
                   name="lastName"
                   onChange={(e) => setLastName(e.target.value)}
                 />
@@ -282,7 +282,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="phone"
-                  label=" numéro de téléphone"
+                  label="Numéro de téléphone"
                   name="phone"
                   autoComplete="phone"
                   onChange={(e) => setPhone(e.target.value)}
@@ -294,7 +294,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="highSchool"
-                  label="lycée"
+                  label="Lycée"
                   name="highSchool"
                   autoComplete="highSchool"
                   onChange={(e) => setHightSchool(e.target.value)}
@@ -306,7 +306,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   name="password"
-                  label="mot de passe"
+                  label="Mot de passe"
                   type="password"
                   id="password"
                   autoComplete="current-password"
@@ -325,7 +325,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   name="confirm_password"
-                  label="confirmer le mot de passe"
+                  label="Confirmer le mot de passe"
                   type="password"
                   id="confirm_password"
                   autoComplete="current-password"
@@ -348,7 +348,7 @@ export default function SignUp() {
                 className={classes.submit}
                 disabled={loading}
               >
-                Sign In
+                S'inscrire'
               </Button>
               {loading && (
                 <CircularProgress

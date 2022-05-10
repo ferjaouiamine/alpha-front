@@ -8,7 +8,7 @@ import "../css/userDataTable.css";
 const { Option } = Select;
 const AddCourse = () => {
   axios.create({
-    baseURL: `/api/`,
+    baseURL: `http://localhost:3001/api/`,
   });
 
   let history = useHistory();
@@ -34,7 +34,7 @@ const AddCourse = () => {
 
       console.log(newCourse);
       const course = await axios.post(
-        "/api/course",
+        "http://localhost:3001/api/course",
         newCourse
       );
       console.log(course);
@@ -66,7 +66,7 @@ const AddCourse = () => {
   const addFiles = {
     name: "file",
     multiple: true,
-    action: "/api/upload/uploadFile",
+    action: "http://localhost:3001/api/upload/uploadFile",
     beforeUpload: (file) => {
       if (file.type !== "application/pdf" && file.type !== "video/mp4") {
         return message.error(`${file.name} type de fichier non autorisé.`);

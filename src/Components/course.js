@@ -31,7 +31,7 @@ const CourseCard = (params) => {
   useEffect(() => {
     const getCourses = async () => {
       try {
-        const coursesRes = await Axios.get("/api/courses");
+        const coursesRes = await Axios.get("http://localhost:3001/api/courses");
         setCoures((await coursesRes).data.data);
         
       } catch (err) {
@@ -47,7 +47,7 @@ const CourseCard = (params) => {
   } = params;
   return (
 
-    <Card style={{ marginTop: "20%" }} style={{boxShadow: "2px 2px 1px #9E9E9E"}}>
+    <Card style={{ marginTop: "20%" }} >
       <CardHeader title={courseName} />
       <CardMedia
         className={classes.media}

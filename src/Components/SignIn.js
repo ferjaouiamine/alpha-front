@@ -66,7 +66,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
   const classes = useStyles();
-
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [error, setError] = useState();
@@ -85,7 +84,7 @@ export default function SignIn() {
       setLoading(true);
       const loginUser = { email, password };
       const loginRes = await Axios.post(
-        "/api/login",
+        "http://localhost:3001/api/login",
         loginUser
       );
       setUserData({
@@ -121,7 +120,7 @@ export default function SignIn() {
   return (
     <div className={classes.root}>
       <Grid item container alignItems="center" justify="center">
-        <Grid item xs={10} sm={6}>
+        <Grid item xs={10} sm={4}>
           
           {error && (
              <Alert style={{marginTop:20 ,maxWidth:550}}
@@ -141,7 +140,7 @@ export default function SignIn() {
               required
               fullWidth
               id="email"
-              label="email"
+              label="Email"
               name="email"
               autoComplete="email"
               autoFocus
@@ -186,7 +185,7 @@ export default function SignIn() {
               required
               fullWidth
               name="password"
-              label="mot de passe"
+              label="Mot de passe"
               type="password"
               id="password"
               autoComplete="current-password"
@@ -201,7 +200,7 @@ export default function SignIn() {
                 className={classes.submit}
                 disabled={loading}
               >
-                Sign In
+                Se connecter
               </Button>
               {loading && (
                 <CircularProgress

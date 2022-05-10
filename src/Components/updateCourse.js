@@ -8,7 +8,7 @@ import "../css/userDataTable.css";
 const { Option } = Select;
 const UpdateCourse = (props) => {
   axios.create({
-    baseURL: `/api/`,
+    baseURL: `http://localhost:3001/api/`,
   });
 
   const location = useLocation();
@@ -35,7 +35,7 @@ const UpdateCourse = (props) => {
         return setInvalidForm(true)
       } 
       const course = await axios.put(
-        `/api/course/${location.state.rowData._id}`,
+        `http://localhost:3001/api/course/${location.state.rowData._id}`,
         newCourse
       );
       setCourse(course);
@@ -140,7 +140,7 @@ const UpdateCourse = (props) => {
         setVideo(location.state.rowData.videoUrl);
         let videoUrl = [...new Set(video)];
         axios.put(
-          `/api/course/${location.state.rowData._id}`,
+          `http://localhost:3001/api/course/${location.state.rowData._id}`,
           pdfUrl,
           videoUrl
         );
@@ -158,7 +158,7 @@ const UpdateCourse = (props) => {
         let pdfUrl = [...new Set(pdf)];
         setPdf(location.state.rowData.pdfUrl);
         axios.put(
-          `/api/course/${location.state.rowData._id}`,
+          `http://localhost:3001/api/course/${location.state.rowData._id}`,
           videoUrl,
           pdfUrl
         );

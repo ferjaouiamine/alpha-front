@@ -5,7 +5,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 import { useHistory } from "react-router-dom";
 import UserContext from "../context/userContext";
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
@@ -15,6 +16,9 @@ import MenuBookRoundedIcon from "@material-ui/icons/MenuBookRounded";
 import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
 import FaceSharpIcon from "@material-ui/icons/FaceSharp";
 import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
+import AvantNav from "./AvantNav";
+import { Flex } from "@chakra-ui/react";
+import { Email, MenuBook, Whatshot } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +34,10 @@ const useStyles = makeStyles((theme) => ({
     display: "none",
   },
   button: {
-    margin: theme.spacing(2),
+    margin: theme.spacing(1),
+    paddingLeft:"70px"
+  
+  
    
   },
 
@@ -58,7 +65,8 @@ export default function NavBar() {
     const onChargeNavBar = () => {
       if (userData.isAuth === false) {
         return (
-          <>
+        <>
+        <Flex >
             <Button
               startIcon={<HomeRoundedIcon style={{ fill: "white" }} />}
               className={classes.button}
@@ -67,6 +75,15 @@ export default function NavBar() {
                 ACCUEIL
               </Link>
             </Button>
+            <Button
+              startIcon={<Whatshot  style={{ fill: "white" }} />}
+              className={classes.button}
+            >
+              <Link to="#abouus" style={{ textDecoration: "none", color: "white" }} >
+               QUI SOMMES NOUS ?
+              </Link>
+            </Button>
+            
             <Button
               startIcon={<VpnKeyRoundedIcon style={{ fill: "white" }} />}
               className={classes.button}
@@ -89,6 +106,7 @@ export default function NavBar() {
                 INSCRIPTION
               </Link>
             </Button>
+              </Flex>
           </>
         );
       }
@@ -232,15 +250,32 @@ export default function NavBar() {
     if (userData.isAuth === false) {
       return (
         <>
-          
-          <Button
+        <Flex id="nav">
+          <Button 
             startIcon={<HomeRoundedIcon style={{ fill: "white" }} />}
-            className={classes.button}
+            className={classes.button} 
           >
-            <Link style={{ textDecoration: "none", color: "white" }} to="/">
+            <Link  style={{ textDecoration: "none", color: "white" }} to="/" >
               ACCUEIL
             </Link>
           </Button>
+          <Button
+                startIcon={<MenuBook style={{ fill: "white" }} />}
+              className={classes.button}
+            >
+              <Link to="#abouus" style={{ textDecoration: "none", color: "white" }}  >
+               QUI SOMMES NOUS ?
+              </Link>
+            </Button>
+            <Button
+          
+           startIcon={<Email  style={{ fill: "white" }} />}
+           className={classes.button}
+         >
+           <Link style={{ textDecoration: "none", color: "white" }} to="#contact"  >
+             CONTACT
+           </Link>
+         </Button>
           <Button
             startIcon={<VpnKeyRoundedIcon style={{ fill: "white" }} />}
             className={classes.button}
@@ -263,6 +298,7 @@ export default function NavBar() {
               INSCRIPTION
             </Link>
           </Button>
+          </Flex>
         </>
       );
     } else if (
@@ -272,7 +308,7 @@ export default function NavBar() {
     ) {
       return (
         <>
-          <Button
+          <Button 
             startIcon={<FaceSharpIcon style={{ fill: "white" }} />}
             className={classes.button}
           >

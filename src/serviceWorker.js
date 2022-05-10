@@ -11,7 +11,7 @@
 // opt-in, read https://bit.ly/CRA-PWA
 
 const is= Boolean(
-  window.location.hostname === 'alphaskool.tn' ||
+  window.location.hostname === 'http://localhost:3001' ||
     // [::1] is the IPv6 37.59.204.215 address.
     window.location.hostname === '[::1]' ||
     // 127.0.0.0/8 are considered 37.59.204.215 for IPv4.

@@ -96,7 +96,7 @@ export default function SignupProf() {
       };
       console.log(newUser);
       const registerRes = await Axios.post(
-        "/api/prof/createProf",
+        "http://localhost:3001/api/prof/createProf",
         newUser
       );
       console.log(registerRes);
@@ -118,7 +118,7 @@ export default function SignupProf() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign up
+              S'inscrire
             </Typography>
             {error && (
               <div className="error-notice">
@@ -147,7 +147,7 @@ export default function SignupProf() {
                     required
                     fullWidth
                     id="lastName"
-                    label="prénom"
+                    label="Prénom"
                     name="lastName"
                     autoComplete="lname"
                     onChange={(e) => setLastName(e.target.value)}
@@ -207,7 +207,7 @@ export default function SignupProf() {
                       <option value="anglais">English</option>
                       <option value="science">Science</option>
                       <option value="mecanique">Mecanique</option>
-                      <option value="eco">économie</option>
+                      <option value="eco">Economie</option>
                       <option value="gestion">Gestion</option>
                     </Select>
                   </FormControl>
@@ -219,7 +219,7 @@ export default function SignupProf() {
                     required
                     fullWidth
                     id="phone"
-                    label=" numéro de téléphone"
+                    label="Numéro de téléphone"
                     name="phone"
                     autoComplete="phone"
                     onChange={(e) => setPhone(e.target.value)}
@@ -231,7 +231,7 @@ export default function SignupProf() {
                     required
                     fullWidth
                     id="highSchool"
-                    label="lycée"
+                    label="Lycée"
                     name="highSchool"
                     autoComplete="highSchool"
                     onChange={(e) => setHightSchool(e.target.value)}
@@ -243,7 +243,7 @@ export default function SignupProf() {
                     required
                     fullWidth
                     name="password"
-                    label="mot de passe"
+                    label="Mot de passe"
                     type="password"
                     id="password"
                     autoComplete="current-password"
@@ -256,7 +256,7 @@ export default function SignupProf() {
                     required
                     fullWidth
                     name="confirm_password"
-                    label="confirmer le mot de passe"
+                    label="Confirmer le mot de passe"
                     type="password"
                     id="confirm_password"
                     autoComplete="current-password"
@@ -272,7 +272,7 @@ export default function SignupProf() {
                 color="primary"
                 className={classes.submit}
               >
-                Sign Up
+                S'inscrire
               </Button>
               <Grid container justify="flex-end">
                 <Grid item>

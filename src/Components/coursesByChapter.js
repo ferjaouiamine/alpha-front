@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2),
     },
   },
-  svg : {
+  svg: {
     maxWidth: "60%",
   }
 }));
@@ -34,60 +34,63 @@ const CoursesByChapter = () => {
   const location = useLocation();
   const classes = useStyles();
   let classeSection = localStorage.getItem("classeSection");
- 
+
   const getcourseContent = (coures) => {
-    
+
     return (
       <Grid container spacing={2} >
-      <Grid item xs={12} sm={4}>
-        <Card style={{marginTop: "20%",boxShadow: "2px 2px 1px #9E9E9E"}}>
-          <CardHeader
-            title={coures.chapterName}
-            // subheader={`Chapitre N° ${location.state.data.chapter}`}
-          />
-          <CardActions>
-            <Link
-              to={{
-                pathname: `/coursepage/${coures._id}`,
-                state: {
-                  data: coures,
-                  courseId: coures._id,
-                },
-              }}
-              style={{ textDecoration: "none" }}
-            >
-              <Button color="primary">Afficher le cours</Button>
-            </Link>
-          </CardActions>
-        </Card>
-      </Grid>
+        <Grid item xs={12} sm={4}>
+          <Card style={{ marginTop: "20%", boxShadow: "2px 2px 1px #9E9E9E" }}>
+            <CardHeader
+              title={coures.chapterName}
+              subheader={`Chapitre N° ${location.state.data.chapter}`}
+            />
+            <CardActions>
+              <Link
+                to={{
+                  pathname: `/coursepage/${coures._id}`,
+                  state: {
+                    data: coures,
+                    courseId: coures._id,
+                  },
+                }}
+                style={{ textDecoration: "none" }}
+              >
+                <Button color="primary">Afficher le cours</Button>
+              </Link>
+            </CardActions>
+          </Card>
+        </Grid>
       </Grid>
     );
   };
-/*
-  const filtredCourses = () => {
-    return location.state.data.filter(coures => (coures.classe === classeSection &&
-      coures.courseName ===
-      location.pathname.substr(11, location.pathname.length)))
-  }
-*/
+
+  // const filtredCourses = () => {
+  //   return location.state.data.filter(coures => (coures.classe === classeSection &&
+  //     coures.courseName ===
+  //     location.pathname.substr(11, location.pathname.length)))
+  // }
+  console.log(location.state.data)
+
+
   return (
     <div>
-      <Breadcrumb style={{ marginTop: 20,justifyContent: "flexStart" ,display: "flex"}}>
+      <Breadcrumb style={{ marginTop: 20, justifyContent: "flexStart", display: "flex" }}>
         <h2><Breadcrumb.Item>Mes cours</Breadcrumb.Item></h2>
-         <Breadcrumb.Item><h2>Chapitre</h2></Breadcrumb.Item>
+        <Breadcrumb.Item><h2>Chapitre</h2></Breadcrumb.Item>
       </Breadcrumb>
 
-        {       /*
+      {       /*
         filtredCourses().length === 0 ? <img src={emptyImg} className={classes.svg} /> :
         filtredCourses().map((coures) => getcourseContent(coures) )
         */
         location.state.data.map((coures) =>
-          coures.classe === classeSection &&
-          coures.courseName ===
-            location.pathname.substr(11, location.pathname.length)
-            ? getcourseContent(coures)
-            : null
+          // coures.classe === classeSection &&
+          //   coures.courseName ===
+          //   location.pathname.substr(11, location.pathname.length)
+          //   ? getcourseContent(coures)
+          //   : null
+          getcourseContent(coures)
         )}
     </div>
   );

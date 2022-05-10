@@ -52,7 +52,7 @@ const CoursePage = () => {
                         controlsList="nodownload"
                         width="100%"
                         height="100%"
-                        src={`https://alphaskool.tn/uploads/${v}`}
+                        src={`http://localhost:3001/api/uploads/${v}`}
                       ></video>
                     </Panel>
                   ))}
@@ -66,6 +66,7 @@ const CoursePage = () => {
               <Panel header="Lesson Attachments">
                 <Collapse accordion>
                   {pdf.map((p, i) => {
+                    console.log(p)
                     return (
                       <Panel header={p} key={i + 1}>
                         <iframe
@@ -73,7 +74,7 @@ const CoursePage = () => {
                           width="100%"
                           height="600"
 
-                          src={`https://alphaskool.tn/uploads/${p}#toolbar=0`}
+                          src={`http://localhost:3001/api/uploads/${p}#toolbar=0`}
 
                         ></iframe>
                       </Panel>
@@ -91,7 +92,7 @@ const CoursePage = () => {
   useEffect(() => {
     const getCourses = async () => {
       try {
-        const coursesRes = Axios.get(`/api/course/${id}`);
+        const coursesRes = Axios.get(`http://localhost:3001/api/course/${id}`);
         setPdf((await coursesRes).data.data.pdfUrl);
         setVideo((await coursesRes).data.data.videoUrl);
         setCoures((await coursesRes).data.data);
